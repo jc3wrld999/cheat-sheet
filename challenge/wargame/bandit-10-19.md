@@ -1,6 +1,6 @@
-bandit 11-20
+bandit 10-19
 #
-level 11: base64 decoding
+level 10 > 11 : base64 decoding
 ```
 bandit10@bandit:~$ cat data.txt
 VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==
@@ -8,14 +8,14 @@ VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==
 bandit10@bandit:~$ echo VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg== | base64 --decode
 The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 ```
-level 12: rot13
+level 11 > 12 : rot13
 ```
 bandit11@bandit:~$ cat data.txt
 Gur cnffjbeq vf 5Gr8L4qetPEsPk8htqjhRK8XSP6x2RHh
 bandit11@bandit:~$ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 The password is 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 ```
-level 13:
+level 12 > 13 :
 1. 16진수 덤프파일 > xxd 명령에 r 옵션으로 16진수 덤프파일을 이진파일로 바꿔준다.
 ```
 bandit12@bandit:~$ mkdir /tmp/gzip
@@ -82,15 +82,30 @@ data9.bin: ASCII text
 bandit12@bandit:/tmp/gzip$ cat data9.bin
 The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```
-level 14:
+level 13 > 14 : ssh key
+```
+bandit13@bandit:~$ ssh -i sshkey.private bandit14@localhost
+
+bandit14@bandit:~$ cd /etc/bandit_pass
+bandit14@bandit:/etc/bandit_pass$ cat bandit14
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+```
+level 14 > 15 :  현재 레벨의 비밀번호 를 localhost 의 포트 30000에 제출하여 검색
+```
+bandit14@bandit:~$ echo 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e | nc localhost 30000
+Correct!
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+```
+level 15 > 16 :
+```
 ```
 
-```
-
-password
+passwords
 ```
 IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
 ```
-
+#
+reference
+- [overthewire](https://overthewire.org/)

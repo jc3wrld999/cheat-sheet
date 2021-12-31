@@ -1,38 +1,32 @@
-bandit 0-10
+bandit 0-9
 #
-level 0 : 로그인하기
-​
-```
-bandit0
-```
-​
-level 1 : readme 읽기
+level 0 > 1: readme 읽기
 ​
 ```
 ls
 cat readme
 ```
 ​
-level 2 : dashed filename (참고: [고급 bash 스크립팅 가이드](https://tldp.org/LDP/abs/html/special-chars.html))
+level 1 > 2 : dashed filename (참고: [고급 bash 스크립팅 가이드](https://tldp.org/LDP/abs/html/special-chars.html))
 ​
 ```
 cat ./-
 ```
 ​
-level 3 : spaces in filename
+level 2 > 3 : spaces in filename
 ​
 ```
 cat ./spaces\ in\ filename
 ```
 ​
-level 4 : hidden file
+level 3 > 4 : hidden file
 ​
 ```
 ls -a
 cat .hidden
 ```
 ​
-level 5 : file
+level 4 > 5 : file
 ​
 -   human-readable
 ​
@@ -40,7 +34,7 @@ level 5 : file
 file ./-*
 ```
 ​
-level 6 : find
+level 5 > 6 : find
 ​
 -   human-readable
 -   1033 bytes in size
@@ -50,7 +44,7 @@ level 6 : find
 find -size 1033c
 ```
 ​
-level 7 : find
+level 6 > 7 : find
 ​
 -   owned by user bandit7
 -   owned by group bandit6
@@ -60,19 +54,19 @@ level 7 : find
 find -user bandit7 -group bandit6 -size 33c
 ```
 ​
-level 8 : data.txt 파일 내용중 millionth 옆에 비밀면호가 있음
+level 7 > 8 : data.txt 파일 내용중 millionth 옆에 비밀면호가 있음
 ​
 ```
 grep "millionth" data.txt
 ```
 ​
-level 9 : data.txt에서 유일하게 한번만 작성된 문장
+level 8 > 9 : data.txt에서 유일하게 한번만 작성된 문장
 ​
 ```
 cat data.txt | sort | uniq -u
 ```
 ​
-level 10 : 몇 개의 '='가 앞에 오는 사람이 읽을 수 있는 몇가지 문자열중 하나
+level 9 > 10 : 몇 개의 '='가 앞에 오는 사람이 읽을 수 있는 몇가지 문자열중 하나
 ​
 ```
 strings data.txt |grep "="
@@ -92,10 +86,9 @@ uniq 파일명 #파일명 내부의 문장들 중 연속된 중복 문장을 하
 uniq -u 파일명 #파일명 내부의 문장들 중 연속된 중복 문장을 모두 삭제하고 출력
 ```
 ​
-password
+passwords
 ​
 ```
-bandit0
 boJ9jbbUNNfktd78OOpsqOltutMc3MY1
 CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
 UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
