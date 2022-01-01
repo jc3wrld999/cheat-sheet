@@ -1,5 +1,9 @@
 bandit 0-9
 #
+level 0
+```
+ssh bandit18@bandit.labs.overthewire.org -p 2220  
+```
 level 0 > 1: readme 읽기
 ​
 ```
