@@ -1,0 +1,5 @@
+`telnet`
+#
+```
+telnet <ip> <port>
+```
