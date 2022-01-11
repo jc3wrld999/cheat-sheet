@@ -54,10 +54,6 @@ options
 
 \-a             위의 모든 것(전체 기본 열거)
 
-#
-`impacket`
-
-- [_](https://www.infosecmatter.com/rce-on-windows-from-linux-part-1-impacket/)
 
 #
 `exploit`
