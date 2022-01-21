@@ -1,0 +1,10 @@
+hashcat
+#
+```
+echo '2cb42f8734ea607eefed3b70af13bbd3' > hash 
+```
+```
+hashcat -a 0 -m 0 hash /usr/share/wordlists/rockyou.txt
+```
+
+#

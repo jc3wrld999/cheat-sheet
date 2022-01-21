@@ -33,6 +33,7 @@ airmon-ng check kill
 `airodump-ng` --패킷 캡쳐
 
 ```
+airodump-ng <interface>
 ```
 
 #

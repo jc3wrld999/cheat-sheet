@@ -1,5 +1,10 @@
 zip
 #
+`zip`
+```
+unzip <file>
+```
+#
 `7zip`
 
 설치
