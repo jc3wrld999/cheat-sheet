@@ -5,6 +5,11 @@ zip
 unzip <file>
 ```
 #
+[tar](https://www.geeksforgeeks.org/tar-command-linux-examples/)
+```
+tar -xvf <archive file>
+```
+#
 `7zip`
 
 설치
