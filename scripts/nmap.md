@@ -1,26 +1,41 @@
 nmap
 
 #
-![image](https://user-images.githubusercontent.com/61821641/147723470-a088e84b-1838-4c85-b486-c27a9fe7235a.png)
+`status`
+
+- Open : 서비스가 지정된 포트에서 수신 대기 중임을 나타냅니다.
+- Closed : 포트에 액세스할 수 있지만 지정된 포트에서 수신 대기 중인 서비스가 없음을 나타냅니다. 접근 가능하다는 것은 접근 가능하고 방화벽이나 기타 보안 어플라이언스/프로그램에 의해 차단되지 않는다는 의미입니다.
+- Filtered : 포트에 접근할 수 없기 때문에 Nmap이 포트가 열려 있는지 닫혀 있는지 결정할 수 없음을 의미합니다. 이 상태는 일반적으로 Nmap이 해당 포트에 도달하지 못하도록 하는 방화벽 때문입니다. Nmap의 패킷이 포트에 도달하지 못하도록 차단될 수 있습니다. 또는 응답이 Nmap의 호스트에 도달하지 못하도록 차단됩니다.
+- Unfiltered : 포트에 접근할 수 있지만 Nmap이 포트가 열려 있는지 닫혀 있는지 확인할 수 없음을 의미합니다. 이 상태는 ACK 스캔을 사용할 때 발생 -sA합니다.
+- Open|Filtered : 이것은 Nmap이 포트가 열려 있는지 필터링되는지 여부를 결정할 수 없음을 의미합니다.
+- Closed|Filtered : 이것은 Nmap이 포트가 닫혀 있는지 또는 필터링되는지 여부를 결정할 수 없음을 의미합니다.
+
 #
-#
-`manual`
+`options`
 ```
--sC #기본 NSE nmap 스크립트
--sV #서비스
-
-
 -p #지정된 포트만 스캔
 -p- #65535개의 모든 포트를 스캔
 --open #열려있는 포트만 스캔
 
 -T<num> #빠른 스캔(T<1~5>)
+-F #가장 일반적인 100 포트
+--top-ports 10 
 
--v #상세수준을 높임
+--min-rate <number>
+--max-rate <number> #스캐너가 초당 10개 이상의 패킷을 보내지 않도록
+--min-parallelism <numprobes>
+--max-parallelism <numprobes>
+
+-v #상세수준을 높임/스캔이 진행됨에 따라 업데이트
+
 -n #DNS 확인을 하지않음
+-R #모든 호스트에 대한 역방향 DNS 조회
+--dns-servers DNS_SERVER #특정 DNS 서버를 사용
+
+-sn #라이브 시스템을 포트 스캔하지 않고 온라인 호스트를 검색
 
 ```
-
+`manual`
 ```
 ┌──(root💀kali)-[~]
 └─# nmap -help                            
@@ -119,3 +134,176 @@ EXAMPLES:
 SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES
 
 ```
+#
+`기본 NSE nmap 스크립트`
+```
+nmap -sC <TARGETS>
+```
+![image](https://user-images.githubusercontent.com/61821641/150687489-95d20fb3-de3a-4090-a7e0-88c7fd0d4581.png)
+#
+`검색할 호스트 목록`
+```
+nmap -sL <TARGETS>
+```
+
+#
+`서비스 목록`
+```
+nmap -sV <TARGETS>
+```
+![image](https://user-images.githubusercontent.com/61821641/150687603-330ab944-4e77-4ca1-8364-34b3a556a67f.png)
+#
+`타겟 목록을 파일로 제공`
+```
+nmap -iL list_of_hosts.txt
+```
+#
+`ARP scan`
+```
+nmap -PR -sn MACHINE_IP/24
+```
+![image](https://user-images.githubusercontent.com/61821641/150687811-85cc3fa2-ab76-45ee-a539-39956fe8a99e.png)
+`arp-scan`
+```
+apt install arp-scan
+```
+```
+arp-scan MACHINE_IP/24
+arp-scan -l #local network의 모든 유효한 ip주소로 arp 쿼리를 보냄
+```
+![image](https://user-images.githubusercontent.com/61821641/150688292-d7d64176-a57b-4a18-8a42-e5070f0d3209.png)
+#
+`ICMP echo scan`
+```
+nmap -PE -sn MACHINE_IP/24
+```
+![image](https://user-images.githubusercontent.com/61821641/150687743-7b4f3087-b391-4a7f-ba1f-489e19b3b274.png)
+#
+`ICMP timestamp scan`
+```
+nmap -PP -sn MACHINE_IP/24
+```
+![image](https://user-images.githubusercontent.com/61821641/150687864-a8c4fb33-497a-4009-a018-3daa0cacfa5b.png)
+#
+`ICMP 주소 마스크 scan`
+```
+nmap -PM -sn MACHINE_IP/24
+```
+#
+`TCP 연결 scan(열린포트스캔)`
+```
+nmap -sT <TARGETS>
+```
+![image](https://user-images.githubusercontent.com/61821641/150690668-a12703dc-fa44-40e5-9482-6d8c02c5d75e.png)
+#
+`TCP SYN scan`
+```
+nmap -sS <TARGETS>
+```
+![image](https://user-images.githubusercontent.com/61821641/150691195-59d9ebec-ec8f-483e-9123-6381df05c563.png)
+`TCP SYN ping scan`
+```
+nmap -PS22,80,443 -sn MACHINE_IP/30
+```
+![image](https://user-images.githubusercontent.com/61821641/150687953-a857f9d1-570f-42e1-9305-761940536869.png)
+#
+`TCP ACK ping scan` --권한이 있어야 함
+```
+nmap -sA <TARGET>
+```
+![image](https://blog.kakaocdn.net/dn/0ZZMW/btrrqmQ9J3J/am6HHVlKyEcOOjet4OsRz0/img.png)
+```
+nmap -PA22,80,443 -sn MACHINE_IP/30
+```
+![image](https://user-images.githubusercontent.com/61821641/150687970-8dc644cf-4ced-42c5-8198-c6bf8fe340b9.png)
+#
+`UDP scan`
+```
+nmap -sU <TARGETS>
+```
+![image](https://blog.kakaocdn.net/dn/tYpV4/btrroNaygO2/caeqs9cqAvezuQZnmCQi5k/img.png)
+`UDP ACK ping scan` 
+```
+nmap -PU22,80,443 -sn MACHINE_IP/30
+```
+![image](https://user-images.githubusercontent.com/61821641/150687999-da1c2314-0d7c-4493-9c8c-9f47d31d5881.png)
+#
+`masscan`
+```
+apt install masscan
+```
+![image](https://user-images.githubusercontent.com/61821641/150688601-0b679dff-88d6-44fa-84f5-65320c95bc20.png)
+
+#
+`Null scan`
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/224e01a913a1ce7b0fb2b9290ff5e1c8.png)
+
+null 스캔에서 응답이 없으면 포트가 열려 있거나 방화벽이 패킷을 차단하고 있음
+```
+nmap -sN <TARGET>
+```
+![image](https://blog.kakaocdn.net/dn/c8eiXp/btrroAibWbX/wc7csJdvyPBDrePK6N8RKK/img.png)
+#
+`Fin scan`
+
+열려있으면 응답하지않음
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/78eb3d6ba158542f2b3223184b032e64.png)
+
+tcp가 닫혀있을 경우 RST 응답을 받음
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/74dc07da7351a5a7f258948ec59efccc.png)
+```
+nmap -sF <TARGET>
+```
+![image](https://blog.kakaocdn.net/dn/pzAvT/btrrqmwRefP/Vr6wYWT5Tc1MYvqF8Wfep0/img.png)
+
+#
+`Xmas scan`
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/7d28b756aed3b6eb72faf98d6974776c.png)
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/4304eacbc3db1af21657f285bc16ebce.png)
+```
+nmap -sX <TARGET>
+```
+![image](https://blog.kakaocdn.net/dn/b6a4dX/btrrwexOXwO/MLUExIoKPfIqZ1ZEGpaPA1/img.png)
+#
+`Maimon`
+
+포트가 열려 있는지 여부에 관계없이 RST 패킷으로 응답
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/8ca5e5e0f6e0a1843cebe11b5b0785b3.png)
+```
+nmap -sM <TARGET>
+```
+![image](https://blog.kakaocdn.net/dn/c3iIf2/btrrqZOUUR2/BkBPykudy4qwEhnFZaOprk/img.png)
+#
+`Window scan`
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5118dcb424d429376f09bf2f85db5bce.png)
+```
+nmap -sW <TARGET>
+```
+![image](https://blog.kakaocdn.net/dn/NnPPv/btrrxX3CW6q/f5TkhO8eNTSi7Kui9zc9l1/img.png)
+#
+`custom scan`
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/d76c5020f14ac0d66e7ff3812bb0bec3.png)
+```
+--scanflags 
+--scanflags RSTSYNFIN # RST, SYN, FIN flag
+```
+#
+`Spoofing`
+
+![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/45b982d501fd26deb2b381059b16f80c.png)
+
+1. 공격자는 스푸핑된 소스 IP 주소가 포함된 패킷을 대상 시스템에 보냅니다.
+2. 대상 시스템은 스푸핑된 IP 주소에 대상으로 응답합니다.
+3. 공격자는 응답을 캡처하여 열린 포트를 파악합니다.
+```
+nmap -S <SPOOFED_IP> <TARGET>
+```
+
+
