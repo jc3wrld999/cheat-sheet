@@ -237,67 +237,68 @@ apt install masscan
 #
 `Null scan`
 
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/224e01a913a1ce7b0fb2b9290ff5e1c8.png)
+![image](https://user-images.githubusercontent.com/61821641/150702308-d80de1e1-8128-401a-b62f-e28571f21f14.png)
+![image](https://user-images.githubusercontent.com/61821641/150702335-7f7797ae-1cfb-4831-a5a9-89c1b54ea9c4.png)
 
 null 스캔에서 응답이 없으면 포트가 열려 있거나 방화벽이 패킷을 차단하고 있음
 ```
 nmap -sN <TARGET>
 ```
-![image](https://blog.kakaocdn.net/dn/c8eiXp/btrroAibWbX/wc7csJdvyPBDrePK6N8RKK/img.png)
+![image](https://user-images.githubusercontent.com/61821641/150702325-1dfc82dc-647b-48f9-977e-0811554d99a6.png)
+
 #
 `Fin scan`
 
 열려있으면 응답하지않음
 
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/78eb3d6ba158542f2b3223184b032e64.png)
+![image](https://user-images.githubusercontent.com/61821641/150702355-c005fa7f-5bd1-4cde-9c78-a03d7930f8cd.png)
 
 tcp가 닫혀있을 경우 RST 응답을 받음
 
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/74dc07da7351a5a7f258948ec59efccc.png)
+![image](https://user-images.githubusercontent.com/61821641/150702372-dffad043-eeae-471f-9c5a-8416a0d12415.png)
 ```
 nmap -sF <TARGET>
 ```
-![image](https://blog.kakaocdn.net/dn/pzAvT/btrrqmwRefP/Vr6wYWT5Tc1MYvqF8Wfep0/img.png)
+![image](https://user-images.githubusercontent.com/61821641/150702383-daa48305-c97c-44be-8692-1b072184fa3f.png)
 
 #
 `Xmas scan`
 
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/7d28b756aed3b6eb72faf98d6974776c.png)
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/4304eacbc3db1af21657f285bc16ebce.png)
+![image](https://user-images.githubusercontent.com/61821641/150702404-25a3f218-3248-4f9e-8ab1-60f43d659131.png)
+![image](https://user-images.githubusercontent.com/61821641/150702414-0a0b8572-1779-4de1-8a32-b24d83e9b374.png)
 ```
 nmap -sX <TARGET>
 ```
-![image](https://blog.kakaocdn.net/dn/b6a4dX/btrrwexOXwO/MLUExIoKPfIqZ1ZEGpaPA1/img.png)
+![image](https://user-images.githubusercontent.com/61821641/150702424-daee3b59-cda7-489f-9968-eeb3133acda6.png)
+
 #
 `Maimon`
 
 포트가 열려 있는지 여부에 관계없이 RST 패킷으로 응답
 
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/8ca5e5e0f6e0a1843cebe11b5b0785b3.png)
+![image](https://user-images.githubusercontent.com/61821641/150702444-cef07dc8-bfb8-42e0-a6d5-fb22831c25c3.png)
 ```
 nmap -sM <TARGET>
 ```
-![image](https://blog.kakaocdn.net/dn/c3iIf2/btrrqZOUUR2/BkBPykudy4qwEhnFZaOprk/img.png)
+![image](https://user-images.githubusercontent.com/61821641/150702462-dea483b2-893b-4da6-a99e-bafcfe701e8b.png)
+
 #
 `Window scan`
 
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5118dcb424d429376f09bf2f85db5bce.png)
+![image](https://user-images.githubusercontent.com/61821641/150702496-9f194573-914b-48d8-af2a-829d064573ae.png)
 ```
 nmap -sW <TARGET>
 ```
-![image](https://blog.kakaocdn.net/dn/NnPPv/btrrxX3CW6q/f5TkhO8eNTSi7Kui9zc9l1/img.png)
+![image](https://user-images.githubusercontent.com/61821641/150702524-12f34480-ce41-4b3f-b848-4c69b735b665.png)
 #
 `custom scan`
 
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/d76c5020f14ac0d66e7ff3812bb0bec3.png)
 ```
 --scanflags 
 --scanflags RSTSYNFIN # RST, SYN, FIN flag
 ```
 #
 `Spoofing`
-
-![image](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/45b982d501fd26deb2b381059b16f80c.png)
 
 1. 공격자는 스푸핑된 소스 IP 주소가 포함된 패킷을 대상 시스템에 보냅니다.
 2. 대상 시스템은 스푸핑된 IP 주소에 대상으로 응답합니다.
