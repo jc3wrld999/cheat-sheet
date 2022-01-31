@@ -4,3 +4,8 @@ strings
 ```
 strings -n 10 <file>
 ```
+#
+`10자에서 100자 사이의 문자열`
+```
+strings Level0.exe | grep -E '.{10,100}'
+```

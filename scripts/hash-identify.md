@@ -13,3 +13,10 @@ hashid <hash>
 [hashID](https://github.com/psypanda/hashID)
 
 #
+`haiti-hash`
+```
+gem install haiti-hash 
+```
+![image](https://user-images.githubusercontent.com/61821641/151673362-a78030da-e18e-4ee9-b503-83fdc9f37751.png)
+
+#

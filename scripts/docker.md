@@ -1,17 +1,53 @@
-🐋docker
+# 🐋
+`setup`
+```
+apt-get update
+apt-get install docker.io
+docker version
+```
 #
-`container`
+`image 설치`
 
+```
+docker search centos
+docker pull centos:latest
+docker image inspect centos
+```
+#
+`run`
+```
+systemctl start docker
+```
+```
+docker run -it --network host centos
+docker run -itd --name centos1 centos
+```
+```
+docker start <container name>
+```
+#
+`web server 구성`
+```
+docker search httpd
+docker pull httpd  
+docker run -d --name httpd-t -p 80:80 httpd
+```
+
+#
+`man`
+
+`container`
 | **명령어** | **설명** |
 | --- | --- |
+| **docker** | 제대로 설치되었는지 확인 |
+| **docker version** | 도커 버전 확인 |
+| **docker system info** | 도커 시스템 정보 확인 |
+| **docker system df** | 도커 디스크 용량 확인 |
 | **docker ps** | 실행중인 컨테이너 확인 |
 | **docker ps -a** | 전체 컨테이너 확인 |
 | **docker (container) inspect 컨테이너명\|ID** | 컨테이너 상세 정보 확인 |
 | **docker rm 컨테이너명\|ID** | 컨테이너 삭제 |
 | **docker rm --force 컨테이너명\|ID** | 컨테이너 강제 삭제 |
-
-| **명령어** | **설명** |
-| --- | --- |
 | **docker (container) run \[옵션\] 이미지 \[커맨드\] \[ARG…\]** | 컨테이너 생성과 동시에 실행 |
 | **docker start 컨테이너** | 컨테이너 실행 |
 | **docker stop 컨테이너** | 컨테이너 종료 |

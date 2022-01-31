@@ -2,6 +2,7 @@ directory
 #
 `주요 dir`
 ```
+/
 /etc
 /etc/passwd     --사용자 계정
 /etc/shadow     --사용자 암호 해시가 포함되어 있으며 일반적으로 루트 사용자만 읽을 수 있다.
@@ -17,3 +18,8 @@ directory
 /etc/issue #uname -a
 ```
 ![image](https://user-images.githubusercontent.com/61821641/150656475-193c69a3-dcf0-4f7e-a80e-02181150f656.png)
+
+```
+/var/www/html
+```
+![image](https://user-images.githubusercontent.com/61821641/150986714-2c4d3120-ba24-47ac-980c-0503b65ea9c6.png)

@@ -1,30 +1,11 @@
-기본명령어
+bash
 #
-`파일 생성`
-```
-touch <file name>
-```
+`조건문`
 
-#
-`파일 탐색`
-```
-less <file name>
-```
-#
-`export`
-```
-#export는 할당 왼쪽에 있는 환경 변수를 할당 오른쪽에 있는 값으로 설정
-export PATH=/tmp:$PATH
-```
-[환경변수 참고](https://help.ubuntu.com/community/EnvironmentVariables)
-#
-[shebang](https://www.geeksforgeeks.org/shell-scripting-define-bin-bash/)
-```
-
-```
-#
-[unset을 이용하여 bash 기록을 비활성화](https://tryhackme.com/room/introductiontohoneypots)
-```
-unset HISTFILE
-```
-
+| Operator | Description |
+| --- | --- |
+| \-eq | 두 피연산자의 값이 같은지 여부를 확인합니다. 같으면 조건이 참이 됩니다. |
+| \-ne | 두 피연산자의 값이 같은지 여부를 확인합니다. 값이 같지 않으면 조건이 참이 됩니다. |
+| \-gt | 왼쪽 피연산자 값이 오른쪽 피연산자 값보다 큰지 확인합니다. 그렇다면 조건이 참이 됩니다. |
+| \-lt | 왼쪽 피연산자 값이 오른쪽 피연산자 값보다 작은지 확인합니다. 그렇다면 조건이 참이 됩니다. |
+| \-ge | 왼쪽 피연산자 값이 오른쪽 피연산자 값보다 크거나 같은지 확인합니다. 그렇다면 조건이 참이 됩니다. |

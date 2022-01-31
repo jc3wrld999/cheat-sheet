@@ -1,7 +1,18 @@
 radare2
 
 #
+`r2`
+```
+r2
+r2 -d file #debugging mode
+r2 -w file #write(수정) mode
+```
+#
 `analytics`
+```
+*?
+```
+![image](https://user-images.githubusercontent.com/61821641/151243875-3a5ade57-b87e-423d-87be-1d53c1839d8d.png)
 ```
 aaa # 모든것을 분석 -A로 radare와 함께 실행하는 것과 동일
 ```
@@ -16,6 +27,21 @@ afl #모든 함수 나열
 -d #디버깅모드 활성화
 db <break-point address> #break-point 설정
 dc #한단계씩 디버깅
+```
+```
+dr
+```
+![image](https://user-images.githubusercontent.com/61821641/151243735-f3e0829d-f148-4fb0-9be7-dbdccf9dde5d.png)
+#
+`binary patch`
+```
+#w옵션으로 시작해야함
+#패치된 바이너리는 바로 저장되므로 백업필수
+```
+![image](https://user-images.githubusercontent.com/61821641/151446005-55f397f0-4ee9-408a-a0f0-ed122d87811b.png)
+```
+s <memory address>
+wx #hex data로 변경가능/변경할 위치로 이동후에 실행
 ```
 #
 `visual mode`
