@@ -6,3 +6,8 @@ ftp
 
 ![image](https://user-images.githubusercontent.com/61821641/150982906-c4539368-8873-4919-b5e1-44c74c6d0e90.png)
 #
+`local file upload`
+```
+put shell.php
+```
+![image](https://user-images.githubusercontent.com/61821641/151920008-41cf3618-ecaa-4274-8e87-41595b7d4a2b.png)
