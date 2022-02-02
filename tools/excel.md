@@ -84,3 +84,43 @@ Excel
 ```
 파일 > 인쇄 > 페이지 설정 > 여백
 ```
+#
+`외부 데이터 가져오기`
+```
+데이터 > 외부 데이터 가져오기 탭에서 기타 원본에서 > Microsoft Query에서 > MS Access Database
+```
+![image](https://user-images.githubusercontent.com/61821641/152106095-6a9e6967-e75f-4fcd-9f86-8c03f51ba8db.png)
+
+![image](https://user-images.githubusercontent.com/61821641/152106516-06e56398-2234-4961-aa1b-b98f705fa82b.png)
+#
+`계산작업`
+
+```
+판매금액 * 마진율
+=$C3 * $C$9
+```
+![image](https://user-images.githubusercontent.com/61821641/152107866-2f336efc-6cc2-4f4f-9d7f-193d442931c0.png)
+
+```
+누적인원수 / 총인원수
+=$H3 / $G$8
+```
+![image](https://user-images.githubusercontent.com/61821641/152108023-ee4c5fae-4699-43ea-8faf-b5dbfdb9ada7.png)
+
+```
+기본급 + 기본급 * (상여비율 + 추가 상여율)
+=$C13 + $C13*($D13+$C$18)
+```
+![image](https://user-images.githubusercontent.com/61821641/152108232-ff0801d5-b853-48d2-9b4f-0bed40ad6ee6.png)
+
+```
+판매량 * 단가 * (1 - 할인율)
+=H12*$G$20*(1-$H$20)
+```
+![image](https://user-images.githubusercontent.com/61821641/152108520-d4353809-0ac8-421a-9bcf-6044c017c311.png)
+
+```
+대출권수 * 대출 포인트 + 연체권수 * 연체 포인트
+=(B22*$C$28)+(C22*$C$29)
+```
+![image](https://user-images.githubusercontent.com/61821641/152108885-73016564-c97a-4c10-9ce7-4a9b43b72cff.png)

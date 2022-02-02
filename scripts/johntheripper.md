@@ -40,5 +40,13 @@ ls
 ./pdf2john.pl <pdf file path> /root/Downloads/idk/pdf.hash
 john /root/Downloads/idk/pdf.hash
 ```
+#
+`ssh2john`
+```
+/usr/share/john/ssh2john.py <rsa file> > <생성할 hash file>
+```
+![image](https://user-images.githubusercontent.com/61821641/152094173-ae5fcb18-cb33-4dc4-a562-6746c4f4c569.png)
+
+![image](https://user-images.githubusercontent.com/61821641/152094200-4c4bd57e-f9bb-41f1-a696-35a878583bb9.png)
 
 
