@@ -234,6 +234,21 @@ apt install masscan
 ```
 ![image](https://user-images.githubusercontent.com/61821641/150688601-0b679dff-88d6-44fa-84f5-65320c95bc20.png)
 
+```
+masscan -e tun0 -p0-65535 --max-rate 500 10.10.10.3
+```
+![image](https://user-images.githubusercontent.com/61821641/152242006-e4b044f8-ccc5-44d5-9987-2507e431bec2.png)
+
+상위 포트 스캔 
+```
+masscan <ip address> --top-ports <num>
+```
+![image](https://user-images.githubusercontent.com/61821641/152240921-5e5dcb3e-53b5-4608-a6f3-17f6ffdc349e.png)
+
+서브넷
+
+![image](https://user-images.githubusercontent.com/61821641/152241185-324c2c93-4155-481b-a7de-c784e25f3304.png)
+
 #
 `Null scan`
 

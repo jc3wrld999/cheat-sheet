@@ -1,0 +1,10 @@
+netstat
+#
+```
+netstat
+```
+![image](https://user-images.githubusercontent.com/61821641/152328520-0495e657-80f2-4084-9aad-6a74a9dd1fe4.png)
+#
+```
+netstat
+```

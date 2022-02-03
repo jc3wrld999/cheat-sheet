@@ -1,5 +1,17 @@
 smbclient
 #
+`syntax`
+```
+smbclient //[IP]/[SHARE]
+```
+`options`
+```
+-U #user
+-L #share list
+-p #port
+--option='client min protocol=NT1'
+```
+
 1. list 뽑고
 ```
 smbclient -L 10.129.8.157 -U Administrator 
@@ -19,9 +31,8 @@ smbclient \\\\10.129.8.157\\ADMIN$ -U Administrator
 smbclient -N -L \\\\10.129.10.239\\ 
 ```
 ![image](https://user-images.githubusercontent.com/61821641/148744022-126985cc-7d49-4c07-ac6f-86a6c313c762.png)
-
-
 #
-`exploit`
-
-- [CVE-2017-7494](https://www.cvedetails.com/cve/CVE-2017-7494/)
+```
+smbclient -N //10.10.10.3/tmp --option='client min protocol=NT1'
+```
+![image](https://user-images.githubusercontent.com/61821641/152251024-fbc0ccd1-7043-45ef-8082-9d4ffb1b7e6f.png)
