@@ -1,4 +1,4 @@
-Excel
+Excel is SUCK
 #
 `조건부 서식`
 
@@ -124,3 +124,122 @@ Excel
 =(B22*$C$28)+(C22*$C$29)
 ```
 ![image](https://user-images.githubusercontent.com/61821641/152108885-73016564-c97a-4c10-9ce7-4a9b43b72cff.png)
+
+`AVERAGEIF`
+```
+#조건범위,조건,계산범위
+=AVERAGEIF($D$4:$D$43,L7,$G$4:$G$43)
+```
+
+#
+## 통계
+
+`표준편차`
+```
+=ROUNDDOWN(STDEV(D29:D38),1)
+```
+`세번째로 큰값`
+```
+=LARGE(I29:I38,3)
+```
+`숫자가 아닌 데이터의 갯수`
+```
+=COUNTA(B16:E16)
+```
+![image](https://user-images.githubusercontent.com/61821641/152639145-45dc6549-d683-44ba-b78f-1557617b23ee.png)
+
+`SMALL` 
+```
+=IF(J16<=SMALL($J$16:$J$24,3),"입상","")
+```
+![image](https://user-images.githubusercontent.com/61821641/152639398-a90533a8-e6d6-4896-8a79-e2f1c06dd56e.png)
+
+`공백 count`
+```
+=COUNTBLANK(I28:K34)
+```
+![image](https://user-images.githubusercontent.com/61821641/152639464-39c05d8a-dae8-404a-826f-05be81c970ab.png)
+
+#
+## 찾기
+
+`Switch 같은거`
+```
+=CHOOSE(COUNTA(B16:E16),"25%","50%","75%","100%")
+```
+![image](https://user-images.githubusercontent.com/61821641/152639241-6ab54f21-2c3f-4111-a0f5-9c6cbbcf9fa2.png)
+
+`Substring같은거`
+```
+=MID(C3,8,1)
+```
+![image](https://user-images.githubusercontent.com/61821641/152639678-83a8bcc2-b03b-405e-af3b-ce44f9290617.png)
+
+C3의 왼쪽 1번째 글자까지
+```
+=LEFT(C3,1)
+```
+
+`찾아서 인덱스 반환`
+```
+=MATCH(A14,B25:D25,0)
+```
+![image](https://user-images.githubusercontent.com/61821641/152672266-02ccb89e-874f-40a4-bc2e-c7b79a69a353.png)
+
+`Join문 같은거`
+```
+=VLOOKUP(H3,$K$7:$L$10,2,TRUE)
+```
+![image](https://user-images.githubusercontent.com/61821641/152672108-487769b2-e426-4f03-8c2c-aaeab6992b31.png)
+
+```
+=HLOOKUP(A14,$B$25:$D$27,3,FALSE)
+=INDEX($B$26:$D$27,2,MATCH(A14,$B$25:$D$25,0))
+```
+![image](https://user-images.githubusercontent.com/61821641/152672309-cfbfff34-88e0-41c6-8adf-aa27031a48a9.png)
+
+`열 번호 매기기`
+```
+=ROW()-ROW($18:$18) +1
+```
+![image](https://user-images.githubusercontent.com/61821641/152672928-82d48783-d21c-42cf-a795-ede88e31b224.png)
+#
+`필터`
+
+```
+표에 커서 > 데이터 탭에서 고급 > 조건 범위, 복사 위치 지정
+```
+조건범위
+```
+=AND(G3<>"서울",E3>AVERAGE($E$3:$E$36),F3<500)
+```
+![image](https://user-images.githubusercontent.com/61821641/152674611-b2dfda32-95d3-4bfe-884d-6cfad63303b6.png)
+#
+`사용자 정의 함수`
+
+개발도구 탭이 없을 때
+```
+파일 > 옵션 > 리본사용자 지정 > 개발도구 추가
+```
+```
+개발도구 > Visual Basic
+```
+#
+`피벗테이블`
+```
+데이터 > 기타 원본에서 > MS Access Database 
+```
+
+```
+삽입 > 피벗테이블 > 외부 데이터
+```
+#
+`데이터 유효성 검사`
+```
+데이터 > 데이터 유효성 검사
+```
+#
+`중복 제거`
+```
+범위 설정 > 데이터 > 중복항목제거
+```

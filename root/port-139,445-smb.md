@@ -4,7 +4,7 @@ SMB
 
 `crackmapexec`
 ```
-crackmapexec smb --shares 10.10.10.3 -u '' -p ''
+crackmapexec <protocol> <target(s)> -u username -p 'Admin!123@'
 ```
 ![image](https://user-images.githubusercontent.com/61821641/152250555-5266158b-ac0b-4b69-a2bf-8c196d48b077.png)
 #

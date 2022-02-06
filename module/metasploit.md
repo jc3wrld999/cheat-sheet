@@ -54,3 +54,26 @@ scanner/netbios/nbname
 ```
 ![image](https://user-images.githubusercontent.com/61821641/151747791-b5604eec-4348-4144-8ad1-da14e28507f0.png)
 #
+`DB`
+
+```
+systemctl start postgresql 
+sfdb init
+msfconsole
+db_nmap -sV -p- <rhosts>
+```
+이제 nmap 스캔을하면 db_nmap에 저장됨 host 목록이랑 service 목록을 볼 수 있음
+```
+hosts
+```
+![image](https://user-images.githubusercontent.com/61821641/152445717-1f8826a0-9b6f-4f22-a4d6-c8b7fa5e5202.png)
+![image](https://user-images.githubusercontent.com/61821641/152445763-6930ab76-01a8-4b88-b6f9-5cad71377120.png)
+```
+services
+```
+![image](https://user-images.githubusercontent.com/61821641/152445796-c573e60e-00a0-4ce3-9701-4c4d6a748a64.png)
+![image](https://user-images.githubusercontent.com/61821641/152445856-e5ee9d06-82de-47ce-bc4b-1e026a1e47a3.png)
+```
+vulns
+```
+![image](https://user-images.githubusercontent.com/61821641/152451547-bbdbaaa0-528f-4011-9c19-996466ee38a2.png)

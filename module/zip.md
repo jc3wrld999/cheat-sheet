@@ -40,3 +40,8 @@ bunzip2 <아카이브 파일 이름>
 gunzip <아카이브 파일 이름>
 ```
 #
+`rar`
+```
+apt-get install rar
+apt-get install unrar
+```
