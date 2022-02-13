@@ -161,49 +161,6 @@ Excel is SUCK
 ![image](https://user-images.githubusercontent.com/61821641/152639464-39c05d8a-dae8-404a-826f-05be81c970ab.png)
 
 #
-## 찾기
-
-`Switch 같은거`
-```
-=CHOOSE(COUNTA(B16:E16),"25%","50%","75%","100%")
-```
-![image](https://user-images.githubusercontent.com/61821641/152639241-6ab54f21-2c3f-4111-a0f5-9c6cbbcf9fa2.png)
-
-`Substring같은거`
-```
-=MID(C3,8,1)
-```
-![image](https://user-images.githubusercontent.com/61821641/152639678-83a8bcc2-b03b-405e-af3b-ce44f9290617.png)
-
-C3의 왼쪽 1번째 글자까지
-```
-=LEFT(C3,1)
-```
-
-`찾아서 인덱스 반환`
-```
-=MATCH(A14,B25:D25,0)
-```
-![image](https://user-images.githubusercontent.com/61821641/152672266-02ccb89e-874f-40a4-bc2e-c7b79a69a353.png)
-
-`Join문 같은거`
-```
-=VLOOKUP(H3,$K$7:$L$10,2,TRUE)
-```
-![image](https://user-images.githubusercontent.com/61821641/152672108-487769b2-e426-4f03-8c2c-aaeab6992b31.png)
-
-```
-=HLOOKUP(A14,$B$25:$D$27,3,FALSE)
-=INDEX($B$26:$D$27,2,MATCH(A14,$B$25:$D$25,0))
-```
-![image](https://user-images.githubusercontent.com/61821641/152672309-cfbfff34-88e0-41c6-8adf-aa27031a48a9.png)
-
-`열 번호 매기기`
-```
-=ROW()-ROW($18:$18) +1
-```
-![image](https://user-images.githubusercontent.com/61821641/152672928-82d48783-d21c-42cf-a795-ede88e31b224.png)
-#
 `필터`
 
 ```
@@ -233,6 +190,20 @@ C3의 왼쪽 1번째 글자까지
 ```
 삽입 > 피벗테이블 > 외부 데이터
 ```
+`없는 필드 삽입`
+```
+옵션 탭 > 계산 > 필드,항목및 집합 > 계산필드
+```
+#
+`통합`
+```
+데이터 > 통합
+```
+#
+`정렬`
+```
+범위 설정(합계제외하고) > 데이터 > 정렬 
+```
 #
 `데이터 유효성 검사`
 ```
@@ -242,4 +213,41 @@ C3의 왼쪽 1번째 글자까지
 `중복 제거`
 ```
 범위 설정 > 데이터 > 중복항목제거
+```
+#
+`목표값 찾기`
+```
+목표값클릭 > 데이터 > 목표값 찾기
+```
+#
+`시나리오`
+```
+셀 이름 정의 > 범위 지정 > 데이터 > 가상분석 > 시나리오 > .. > 요약 > 결과셀에 시나리오 변경 시 결과적으로 알고싶은 셀
+```
+#
+`셀서식`
+```
+양수서식;음수서식;0;텍스트서식
+```
+#
+## 차트
+
+`차트 생성`
+```
+범위 선택 > 삽입 > 세로 막대형
+```
+
+`데이터 추가`
+```
+디자인 탭 > 데이터 선택
+```
+
+`행/열 전환`
+```
+디자인 탭 > 행/열 전환
+```
+
+`보조축`
+```
+축 선택 > 우클릭 > 데이터 계열 서식
 ```
