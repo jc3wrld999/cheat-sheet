@@ -69,3 +69,6 @@ payload = padding + eip
 
 print(payload)
 ```
+#
+References
+- [rp++](https://github.com/0vercl0k/rp.git)

@@ -1,5 +1,13 @@
 impacket은 네트워크 프로토콜 작업을 위한 파이썬 클래스 모음입니다.
 #
+`set up`
+```
+git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket
+pip3 install -r /opt/impacket/requirements.txt
+cd /opt/impacket/ && python3 ./setup.py install
+```
+
+#
 
 ![image](https://user-images.githubusercontent.com/61821641/148950112-b2d5f951-4566-49b0-ae91-4ac42e9315b1.png)
 

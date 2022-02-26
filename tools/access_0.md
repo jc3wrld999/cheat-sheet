@@ -72,3 +72,12 @@ else
 end if
 ```
 ![image](https://user-images.githubusercontent.com/61821641/153757359-9d2f95c3-7eaa-41b3-8108-3568a4513ffe.png)
+#
+`Dlookup`
+```
+Dlookup([필드명],테이블명, "조건")
+```
+#
+`입력마스크`
+
+![image](https://user-images.githubusercontent.com/61821641/153799711-4ecee15d-aad9-4ae0-9840-243031e43c1c.png)

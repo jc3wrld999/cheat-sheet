@@ -62,5 +62,14 @@ grep <문자열> *.txt
 grep -i <문자열> <찾을 파일>
 ```
 #
+Example
+
+```
+grep 'ELF' * | more
+```
+![image](https://user-images.githubusercontent.com/61821641/154872898-ff9bfbed-6f8d-4c61-b4d9-be5a4d1dd15d.png)
+- 비트맵 이미지 파일로 보였던 67b8601 파일에서도 ELF라는 문자열이 발견됐다.
+
+#
 reference
 - [_](https://recipes4dev.tistory.com/157)

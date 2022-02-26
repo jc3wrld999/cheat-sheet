@@ -1,5 +1,11 @@
 zip
 #
+`file`
+```
+file -z decoded_payload
+```
+![image](https://user-images.githubusercontent.com/61821641/154872255-e1041cb5-b429-4c63-8629-58527bd5eefc.png)
+#
 `zip`
 ```
 unzip <file>
@@ -38,10 +44,16 @@ bunzip2 <아카이브 파일 이름>
 
 ```
 gunzip <아카이브 파일 이름>
+gunzip -d <아카이브 파일 이름>
 ```
 #
 `rar`
 ```
 apt-get install rar
 apt-get install unrar
+```
+#
+`xz`
+```
+xz -d <아카이브>
 ```

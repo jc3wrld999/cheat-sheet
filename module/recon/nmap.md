@@ -13,9 +13,11 @@ nmap
 #
 `options`
 ```
+-A #포트에 대한 세부정보
 -p #지정된 포트만 스캔
 -p- #65535개의 모든 포트를 스캔
 --open #열려있는 포트만 스캔
+-Pn #ping을 하지 않고 시스템이 동작중인지 확인
 
 -T<num> #빠른 스캔(T<1~5>)
 -F #가장 일반적인 100 포트
@@ -34,6 +36,7 @@ nmap
 
 -sn #라이브 시스템을 포트 스캔하지 않고 온라인 호스트를 검색
 
+-oX #스캔결과를 xml파일에 저장
 ```
 `manual`
 ```
@@ -140,6 +143,11 @@ SEE THE MAN PAGE (https://nmap.org/book/man.html) FOR MORE OPTIONS AND EXAMPLES
 nmap -sC <TARGETS>
 ```
 ![image](https://user-images.githubusercontent.com/61821641/150687489-95d20fb3-de3a-4090-a7e0-88c7fd0d4581.png)
+#
+`스텔스 TCP 스캔`
+```
+nmap -sS <TARGETS>
+```
 #
 `검색할 호스트 목록`
 ```
