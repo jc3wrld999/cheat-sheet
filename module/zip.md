@@ -9,6 +9,7 @@ file -z decoded_payload
 `zip`
 ```
 unzip <file>
+unzip <file> -d <압출 풀 폴더>
 ```
 #
 [tar](https://www.geeksforgeeks.org/tar-command-linux-examples/)
@@ -51,6 +52,8 @@ gunzip -d <아카이브 파일 이름>
 ```
 apt-get install rar
 apt-get install unrar
+
+unrar e <아카이브>
 ```
 #
 `xz`

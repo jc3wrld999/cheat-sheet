@@ -1,0 +1,72 @@
+python packet 분석
+#
+[scapy](https://github.com/secdev/scapy)
+
+`setup`
+```
+apt-get install scapy
+```
+
+`run`
+```
+scapy
+```
+![image](https://user-images.githubusercontent.com/61821641/156268655-c29dba0b-335d-4195-9bed-f6df8a1c178a.png)
+
+`패킷 읽어오기`
+```
+rdpcap(filename)
+```
+![image](https://user-images.githubusercontent.com/61821641/156268625-7af08464-fd16-445e-954e-eaa55a871464.png)
+
+`패킷 읽어서 변수에 담기`
+
+![image](https://user-images.githubusercontent.com/61821641/156268857-197e657f-699c-4f46-9a27-b581b95dbff5.png)
+
+`각 프로토몰 필드 값 확인`
+```
+packets[0]['IP']
+```
+![image](https://user-images.githubusercontent.com/61821641/156268926-1c827f81-0c3a-410e-b3e6-0a7584c6f508.png)
+
+![image](https://user-images.githubusercontent.com/61821641/156269185-335137cb-9cff-412c-9fb5-674c115323fa.png)
+
+`기록된 모든 패킷의 출발지 ip 주소를 표시`
+```
+for p in packets:
+    print (p['IP'].src)
+
+```
+![image](https://user-images.githubusercontent.com/61821641/156269367-8e464677-c279-4692-ab72-abd90abdcc72.png)
+
+`출발지 IP 주소가 172.20.250.1인 패킷의 ICMP 종류 확인`
+```
+>>> for p in packets:
+...:     if (p['IP'].src == '172.20.250.1'):
+...:         print (p['IP'].src)
+...: 
+...: 
+```
+![image](https://user-images.githubusercontent.com/61821641/156269612-6ee19e05-3b73-4430-b480-4fb321ace55c.png)
+
+`scapy 임포트해서 직접 스크립트짜기`
+
+```
+#!/usr/bin/env python
+from scapy.all import *
+
+def main():
+        packets = rdpcap('scapy_ex1.pcap')
+
+        for p in packets:
+                if (p['IP'].src == '172.20.250.1'):
+                        print(p['ICMP'].type)
+
+if __name__ == '__main__':
+        main()
+
+```
+![image](https://user-images.githubusercontent.com/61821641/156270447-571640c3-8088-4269-ae6b-7aa13e0a8034.png)
+
+#
+dpkt
