@@ -16,6 +16,22 @@ unzip <file> -d <압출 풀 폴더>
 ```
 tar -xvf <archive file>
 ```
+
+`tar로 묶기`
+```
+tar cf <ouput file name> <file1> <file2> <file3> ..
+```
+![image](https://user-images.githubusercontent.com/61821641/156915137-28ef33c0-3961-43cc-a8d1-6b9106b6d717.png)
+
+![image](https://user-images.githubusercontent.com/61821641/156915146-77f37f1c-e559-493b-8a3e-351863b01b44.png)
+
+`tar.gz로 묶기`
+```
+tar czf <ouput file name> <file1> <file2> <file3> ..
+```
+![image](https://user-images.githubusercontent.com/61821641/156915112-8526a1cb-7297-42cb-909c-901ead79e405.png)
+
+![image](https://user-images.githubusercontent.com/61821641/156915122-a0f4729b-669c-4b1f-a1f9-691ef18a8f6d.png)
 #
 `7zip`
 

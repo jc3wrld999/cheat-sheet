@@ -57,6 +57,9 @@ export TERM=xterm
 export SHELL=bash
 ```
 
+```
+/bin/sh -i
+```
 `대화식 셸`
 ```
 python3 -c 'import pty; pty.spawn("/bin/sh")'
